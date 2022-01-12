@@ -1,7 +1,9 @@
+import { MaterialUISwitch } from './MUISwitch'
+
 const ThemeSwitcher = () => {
   return (
-    <div>
-      ThemeSwitcher
+    <div className="theme-switcher">
+      Light Theme <MaterialUISwitch />
     </div>
   )
 }

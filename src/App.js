@@ -4,6 +4,7 @@ const App = () => {
   return (
     <div className="app">
       <ThemeSwitcher />
+      <h1>WORD BOOK</h1>
       <Form />
       <SearchOutput />
     </div>

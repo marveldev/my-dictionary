@@ -3,7 +3,9 @@ body {
 }
 
 .app {
-  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .theme-switcher {
@@ -15,10 +17,21 @@ body {
 h1 {
   font-size: 4.7em;
   margin: 0 0 0.3em;
+  text-align: center;
 }
 
 .form {
   display: flex;
-  justify-content: center;
-  gap: 2em;
+  gap: 5em;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.search-box {
+  flex: 0.65;
+}
+
+.language-select-box {
+  flex: 0.35;
+  text-align: left;
 }

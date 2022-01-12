@@ -1,7 +1,11 @@
+import { Form, SearchOutput, ThemeSwitcher } from './components'
+
 const App = () => {
   return (
-    <div className="App">
-      hey
+    <div className="app">
+      <ThemeSwitcher />
+      <Form />
+      <SearchOutput />
     </div>
   )
 }

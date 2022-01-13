@@ -11,13 +11,14 @@ body {
 .theme-switcher {
   text-align: right;
   margin: 0.5em 1em 0;
-  font-weight: bold;
+  font-family: "Montserrat Medium", serif;
 }
 
 h1 {
   font-size: 4.7em;
   margin: 0 0 0.3em;
   text-align: center;
+  font-family: "Montserrat ExtraLight", serif;
 }
 
 .form {
@@ -34,4 +35,33 @@ h1 {
 .language-select-box {
   flex: 0.35;
   text-align: left;
+}
+
+.search-book-illustration {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  text-align: center;
+}
+
+.search-book-illustration p {
+  margin: 0;
+}
+
+@media screen and (max-width: 628px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  .form {
+    gap: 1em;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  h1 {
+    font-size: 2em;
+  }
 }

@@ -37,11 +37,18 @@ h1 {
   text-align: left;
 }
 
+.output {
+  width: 80%;
+  height: 50%;
+  margin: 2.5em auto;
+  background: green;
+}
+
+.search-output {
+  background: green;
+}
+
 .search-book-illustration {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -30%);
   text-align: center;
 }
 

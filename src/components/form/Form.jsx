@@ -2,7 +2,7 @@ import debounce from 'lodash.debounce'
 import { useState } from 'react'
 import { MenuItem, TextField } from '@mui/material'
 
-const Form = () => {
+const Form = ({ setDefinitions }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
 
@@ -12,7 +12,11 @@ const Form = () => {
       const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageShortCode}/${value}`
       const response = await fetch(url)
       const data = await response.json()
-      console.log(data)
+      setDefinitions(data)
+      // console.clear()
+    }
+    else {
+      setDefinitions()
     }
   }, 300)
 

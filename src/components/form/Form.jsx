@@ -21,8 +21,8 @@ const Form = ({ setDefinitions }) => {
   }, 300)
 
   return (
-    <div className="form">
-      <div className="search-box">
+    <div className="form d-flex gap-3 text m-auto my-3">
+      <div className="flex-grow-1">
         <TextField
           label="Search a Word"
           variant="filled"
@@ -31,7 +31,7 @@ const Form = ({ setDefinitions }) => {
         />
       </div>
 
-      <div className="select-language-box">
+      <div>
         <TextField
           label="Language"
           value={selectedLanguage}

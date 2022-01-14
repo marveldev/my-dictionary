@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { Form, SearchOutput, ThemeSwitcher } from './components'
 
 const App = () => {
-  const [definitions, setDefinitions] = useState()
+  const [definitions, setDefinitions] = useState([])
 
   return (
     <div className="app">
       <ThemeSwitcher />
-      <h1>WORD BOOK</h1>
+      <h1 className="text-center">WORD BOOK</h1>
       <Form setDefinitions={setDefinitions} />
       <SearchOutput definitions={definitions} setDefinitions={setDefinitions} />
     </div>

@@ -6,63 +6,53 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-
-.theme-switcher {
-  text-align: right;
-  margin: 0.5em 1em 0;
   font-family: "Montserrat Medium", serif;
 }
 
 h1 {
-  font-size: 4.7em;
-  margin: 0 0 0.3em;
-  text-align: center;
-  font-family: "Montserrat ExtraLight", serif;
+  font-size: 3em;
+  font-family: "Montserrat light", serif;
 }
 
 .form {
-  display: flex;
-  gap: 5em;
   width: 80%;
-  margin: 0 auto;
 }
 
-.search-box {
-  flex: 0.65;
-}
-
-.select-language-box {
-  flex: 0.35;
-  text-align: left;
-}
-
-.output {
+.header {
+  background: #f0f0f0;
   width: 80%;
-  height: 50%;
-  margin: 2.5em auto;
-  background: green;
 }
 
-.search-output {
-  background: green;
+button:active {
+  transform: translateY(0.2em);
 }
 
-.search-book-illustration {
-  text-align: center;
+.definitions-wrapper {
+  width: 80%;
+  height: auto;
+  max-height: 23em;
+  background: #f0f0f0;
 }
 
-.search-book-illustration p {
-  margin: 0;
+.definition {
+  background: #3B5360;
+}
+
+.content {
+  margin-top: 5em;
 }
 
 @media screen and (max-width: 628px) {
-  h1 {
-    font-size: 2em;
-  }
-
   .form {
     gap: 1em;
+    width: 95%;
+  }
+
+  .header {
+    width: 95%;
+  }
+
+  .definitions-wrapper {
     width: 95%;
   }
 }

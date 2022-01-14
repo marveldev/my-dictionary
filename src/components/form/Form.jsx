@@ -12,11 +12,11 @@ const Form = ({ setDefinitions }) => {
       const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageShortCode}/${value}`
       const response = await fetch(url)
       const data = await response.json()
-      setDefinitions(data)
-      // console.clear()
+      setDefinitions(data[0])
+      console.clear()
     }
     else {
-      setDefinitions()
+      setDefinitions([])
     }
   }, 300)
 

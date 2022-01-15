@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Form, SearchOutput, ThemeSwitcher } from './components'
+import { Form, Output, ThemeSwitcher } from './components'
 
 const App = () => {
   const [definitions, setDefinitions] = useState([])
@@ -9,7 +9,7 @@ const App = () => {
       <ThemeSwitcher />
       <h1 className="text-center">WORD BOOK</h1>
       <Form setDefinitions={setDefinitions} />
-      <SearchOutput definitions={definitions} />
+      <Output definitions={definitions} />
     </div>
   )
 }

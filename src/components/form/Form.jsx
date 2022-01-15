@@ -6,6 +6,12 @@ const Form = ({ setDefinitions }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
 
+  const changeLanguage = value => {
+    setDefinitions([])
+    setSelectedLanguage(value)
+    document.querySelector('#wordInput').value = ''
+  }
+
   const fetchSearchData = debounce(async value => {
     if (value.trim().length >= 1) {
       const languageShortCode = selectedLanguage.slice(-3, -1)
@@ -25,6 +31,7 @@ const Form = ({ setDefinitions }) => {
       <div className="flex-grow-1">
         <TextField
           label="Search a Word"
+          id="wordInput"
           variant="filled"
           onChange={event => fetchSearchData(event.target.value)}
           fullWidth
@@ -36,7 +43,7 @@ const Form = ({ setDefinitions }) => {
           label="Language"
           value={selectedLanguage}
           variant="filled"
-          onChange={event => setSelectedLanguage(event.target.value)}
+          onChange={event => changeLanguage(event.target.value)}
           fullWidth
           select
         >

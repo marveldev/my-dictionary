@@ -9,7 +9,7 @@ const App = () => {
       <ThemeSwitcher />
       <h1 className="text-center">WORD BOOK</h1>
       <Form setDefinitions={setDefinitions} />
-      <SearchOutput definitions={definitions} setDefinitions={setDefinitions} />
+      <SearchOutput definitions={definitions} />
     </div>
   )
 }

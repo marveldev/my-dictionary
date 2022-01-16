@@ -1,42 +1,48 @@
-import debounce from 'lodash.debounce'
 import { useState } from 'react'
 import { MenuItem, TextField } from '@mui/material'
 
 const Form = ({ setDefinitions }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
+  const languageShortCode = selectedLanguage.slice(-3, -1)
+  const [word, setWord] = useState('')
 
   const changeLanguage = value => {
     setDefinitions([])
     setSelectedLanguage(value)
-    document.querySelector('#wordInput').value = ''
+    setWord('')
   }
-
-  const fetchSearchData = debounce(async value => {
-    if (value.trim().length >= 1) {
-      const languageShortCode = selectedLanguage.slice(-3, -1)
-      const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageShortCode}/${value}`
+  
+  const fetchSearchData = async event => {
+    event.preventDefault()
+    if (word.trim().length >= 1) {
+      const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageShortCode}/${word}`
       const response = await fetch(url)
       const data = await response.json()
       setDefinitions(data[0])
-      console.clear()
     }
-    else {
-      setDefinitions([])
-    }
-  }, 300)
+  }
 
   return (
     <div className="form d-flex gap-3 text m-auto my-3">
-      <div className="flex-grow-1">
+      <form
+        className="d-flex flex-grow-1"
+        onSubmit={event => fetchSearchData(event)}
+      >
         <TextField
           label="Search a Word"
-          id="wordInput"
           variant="filled"
-          onChange={event => fetchSearchData(event.target.value)}
+          value={word}
+          onChange={event => setWord(event.target.value)}
           fullWidth
         />
-      </div>
+        <button
+          type="submit"
+          className="btn btn-primary rounded-0 rounded-end w-25"
+        >
+          <i className="fa fa-search" />
+        </button>
+      </form>
 
       <div>
         <TextField

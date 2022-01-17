@@ -1,9 +1,9 @@
 import { MaterialUISwitch } from './MUISwitch'
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ darkTheme, setDarkTheme }) => {
   return (
     <div className="text-end mx-4 mt-1">
-      <MaterialUISwitch />
+      <MaterialUISwitch onChange={() => setDarkTheme(!darkTheme)} />
     </div>
   )
 }

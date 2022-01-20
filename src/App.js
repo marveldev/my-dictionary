@@ -10,7 +10,7 @@ const App = () => {
     <div className={`${theme} app`}>
       <ThemeSwitcher darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
       <h1 className="text-center">WORD BOOK</h1>
-      <Form setDefinitions={setDefinitions} />
+      <Form setDefinitions={setDefinitions} darkTheme={darkTheme} />
       <Output definitions={definitions} />
     </div>
   )

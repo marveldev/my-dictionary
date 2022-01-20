@@ -13,7 +13,7 @@ const Output = ({ definitions }) => {
       {definitions?.meanings && (
         <div className="definitions-wrapper m-auto overflow-auto">
           <div className="header position-fixed ps-lg-5 d-flex py-2 gap-2">
-            <button className="border-0 pointer-event">
+            <button className="border-0 pointer-event bg-transparent">
               <img src={soundIcon} alt="sound icon"/>
             </button>
             <div>

@@ -9,11 +9,6 @@ body {
   transition: all 0.5s linear 0s;
 }
 
-.dark {
-  background: #282C34;
-  color: #fff;
-}
-
 h1 {
   font-size: 3em;
   font-family: "Montserrat light", serif;
@@ -46,6 +41,19 @@ button:active {
 
 .content {
   margin-top: 5em;
+}
+
+.dark {
+  background: #282C34;
+  color: #fff;
+}
+
+.dark .definitions-wrapper {
+  background: #202E3C;
+}
+
+.dark .header {
+  background: #202E3C;
 }
 
 @media screen and (max-width: 628px) {

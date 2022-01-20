@@ -1,18 +1,24 @@
 import { useState } from 'react'
-import { MenuItem, TextField } from '@mui/material'
+import { MenuItem, TextField, createTheme, ThemeProvider } from '@mui/material'
 
-const Form = ({ setDefinitions }) => {
+const Form = ({ setDefinitions, darkTheme }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
   const languageShortCode = selectedLanguage.slice(-3, -1)
   const [word, setWord] = useState('')
+
+  const theme = createTheme({
+    palette: {
+      mode: darkTheme ? 'dark' : 'light'
+    }
+  })
 
   const changeLanguage = value => {
     setDefinitions([])
     setSelectedLanguage(value)
     setWord('')
   }
-  
+
   const fetchSearchData = async event => {
     event.preventDefault()
     if (word.trim().length >= 1) {
@@ -25,41 +31,43 @@ const Form = ({ setDefinitions }) => {
 
   return (
     <div className="form d-flex gap-3 text m-auto my-3">
-      <form
-        className="d-flex flex-grow-1"
-        onSubmit={event => fetchSearchData(event)}
-      >
-        <TextField
-          label="Search a Word"
-          variant="filled"
-          value={word}
-          onChange={event => setWord(event.target.value)}
-          fullWidth
-        />
-        <button
-          type="submit"
-          className="btn btn-primary rounded-0 rounded-end w-25"
+      <ThemeProvider theme={theme}>
+        <form
+          className="d-flex flex-grow-1"
+          onSubmit={event => fetchSearchData(event)}
         >
-          <i className="fa fa-search" />
-        </button>
-      </form>
+          <TextField
+            label="Search a Word"
+            variant="filled"
+            value={word}
+            onChange={event => setWord(event.target.value)}
+            fullWidth
+          />
+          <button
+            type="submit"
+            className="btn btn-primary rounded-0 rounded-end w-25"
+          >
+            <i className="fa fa-search" />
+          </button>
+        </form>
 
-      <div>
-        <TextField
-          label="Language"
-          value={selectedLanguage}
-          variant="filled"
-          onChange={event => changeLanguage(event.target.value)}
-          fullWidth
-          select
-        >
-          {languages.map(language => (
-            <MenuItem key={language} value={language}>
-              {language}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
+        <div>
+          <TextField
+            label="Language"
+            value={selectedLanguage}
+            variant="filled"
+            onChange={event => changeLanguage(event.target.value)}
+            fullWidth
+            select
+          >
+            {languages.map(language => (
+              <MenuItem key={language} value={language}>
+                {language}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+      </ThemeProvider>
     </div>
   )
 }

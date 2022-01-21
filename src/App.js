@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className={`${theme} app`}>
       <ThemeSwitcher setTheme={setTheme} theme={theme} themePalette={themePalette} />
-      <h1 className="text-center">WORD BOOK</h1>
+      <h1 className="text-center">{definitions?.word || 'WORD BOOK'}</h1>
       <Form setDefinitions={setDefinitions} themePalette={themePalette} />
       <Output definitions={definitions} />
     </div>

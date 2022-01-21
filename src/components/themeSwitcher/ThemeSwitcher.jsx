@@ -12,7 +12,7 @@ const ThemeSwitcher = ({ theme, setTheme, themePalette }) => {
       <MaterialUISwitch
         theme={themePalette}
         onChange={switchTheme}
-        defaultChecked={theme === 'dark' && true}
+        checked={theme === 'dark' && true}
       />
     </div>
   )

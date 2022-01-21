@@ -19,8 +19,7 @@ h1 {
 }
 
 .header {
-  background: #f0f0f0;
-  width: 78%;
+  padding: 1em 2em;
   font-family: "Montserrat Medium", serif;
 }
 
@@ -32,7 +31,7 @@ h1 {
 .definitions-wrapper {
   width: 80%;
   height: auto;
-  max-height: 23em;
+  max-height: 28em;
   background: #f0f0f0;
 }
 
@@ -42,15 +41,11 @@ h1 {
 
 .definitions-wrapper::-webkit-scrollbar-thumb {
   border-radius: 0.5em;
-  background-color: #3B5360;
+  background-color: #bbb7b7;
 }
 
 .definition {
   background: #3B5360;
-}
-
-.content {
-  margin-top: 5em;
 }
 
 .dark {
@@ -81,7 +76,7 @@ h1 {
   }
 
   .header {
-    width: 95%;
+    padding: 0.5em 0;
   }
 
   .definitions-wrapper {

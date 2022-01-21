@@ -13,8 +13,8 @@ const Output = ({ definitions }) => {
       )}
 
       {definitions?.meanings && (
-        <div className="definitions-wrapper m-auto overflow-auto">
-          <div className="header position-fixed ps-lg-5 d-flex align-items-center py-2 gap-2">
+        <div className="definitions-wrapper m-auto overflow-auto rounded">
+          <div className="header d-flex align-items-center gap-3">
             <IconButton>
               <VolumeUpIcon className="volume-icon"/>
             </IconButton>
@@ -23,7 +23,7 @@ const Output = ({ definitions }) => {
               <p className="m-0">/{definitions?.phonetic}/</p>
             </div>
           </div>
-          <ul className="content mx-lg-5 ps-0">
+          <ul className="mx-lg-5 ps-0">
             {definitions?.meanings.map((meaning, index) => (
               <li key={index}>
                 <p>"partOfSpeech": {meaning.partOfSpeech}</p>

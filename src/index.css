@@ -36,6 +36,15 @@ h1 {
   background: #f0f0f0;
 }
 
+.definitions-wrapper::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.definitions-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 0.5em;
+  background-color: #3B5360;
+}
+
 .definition {
   background: #3B5360;
 }
@@ -55,6 +64,10 @@ h1 {
 
 .dark .header {
   background: #3B3F46;
+}
+
+.dark .definition {
+  background: #355c6c;
 }
 
 .dark .volume-icon {

@@ -14,7 +14,7 @@ const Output = ({ definitions }) => {
 
       {definitions?.meanings && (
         <div className="definitions-wrapper m-auto overflow-auto">
-          <div className="header position-fixed ps-lg-5 d-flex py-2 gap-2">
+          <div className="header position-fixed ps-lg-5 d-flex align-items-center py-2 gap-2">
             <IconButton>
               <VolumeUpIcon className="volume-icon"/>
             </IconButton>

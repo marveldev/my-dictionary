@@ -1,16 +1,23 @@
 import { useState } from 'react'
+import { createTheme } from '@mui/material'
 import { Form, Output, ThemeSwitcher } from './components'
 
 const App = () => {
   const [definitions, setDefinitions] = useState([])
-  const [darkTheme, setDarkTheme] = useState(true)
-  const theme = darkTheme ? 'dark' : 'light'
+  const storedTheme = localStorage.getItem('theme') || 'light'
+  const [theme, setTheme] = useState(storedTheme)
+
+  const themePalette = createTheme({
+    palette: {
+      mode: theme
+    }
+  })
 
   return (
     <div className={`${theme} app`}>
-      <ThemeSwitcher darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+      <ThemeSwitcher setTheme={setTheme} theme={theme} themePalette={themePalette} />
       <h1 className="text-center">WORD BOOK</h1>
-      <Form setDefinitions={setDefinitions} darkTheme={darkTheme} />
+      <Form setDefinitions={setDefinitions} themePalette={themePalette} />
       <Output definitions={definitions} />
     </div>
   )

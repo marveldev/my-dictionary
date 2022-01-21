@@ -1,17 +1,12 @@
 import { useState } from 'react'
-import { MenuItem, TextField, createTheme, ThemeProvider } from '@mui/material'
+import { MenuItem, TextField, ThemeProvider, IconButton } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
-const Form = ({ setDefinitions, darkTheme }) => {
+const Form = ({ setDefinitions, themePalette }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
   const languageShortCode = selectedLanguage.slice(-3, -1)
   const [word, setWord] = useState('')
-
-  const theme = createTheme({
-    palette: {
-      mode: darkTheme ? 'dark' : 'light'
-    }
-  })
 
   const changeLanguage = value => {
     setDefinitions([])
@@ -29,11 +24,17 @@ const Form = ({ setDefinitions, darkTheme }) => {
     }
   }
 
+  const SearchButton = () => (
+    <IconButton>
+      <SearchIcon />
+    </IconButton>
+  )
+
   return (
     <div className="form d-flex gap-3 text m-auto my-3">
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themePalette}>
         <form
-          className="d-flex flex-grow-1"
+          className="flex-grow-1"
           onSubmit={event => fetchSearchData(event)}
         >
           <TextField
@@ -41,14 +42,9 @@ const Form = ({ setDefinitions, darkTheme }) => {
             variant="filled"
             value={word}
             onChange={event => setWord(event.target.value)}
+            InputProps={{endAdornment: <SearchButton />}}
             fullWidth
           />
-          <button
-            type="submit"
-            className="btn btn-primary rounded-0 rounded-end w-25"
-          >
-            <i className="fa fa-search" />
-          </button>
         </form>
 
         <div>

@@ -24,10 +24,6 @@ h1 {
   font-family: "Montserrat Medium", serif;
 }
 
-button:active {
-  transform: translateY(0.2em);
-}
-
 .definitions-wrapper {
   width: 80%;
   height: auto;

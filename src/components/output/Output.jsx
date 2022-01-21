@@ -1,4 +1,6 @@
-import { searchBookIllustration, soundIcon } from '../assets'
+import { IconButton } from '@mui/material'
+import VolumeUpIcon from '@mui/icons-material/VolumeUp'
+import { searchBookIllustration } from '../assets'
 
 const Output = ({ definitions }) => {
   return (
@@ -13,9 +15,9 @@ const Output = ({ definitions }) => {
       {definitions?.meanings && (
         <div className="definitions-wrapper m-auto overflow-auto">
           <div className="header position-fixed ps-lg-5 d-flex py-2 gap-2">
-            <button className="border-0 pointer-event bg-transparent">
-              <img src={soundIcon} alt="sound icon"/>
-            </button>
+            <IconButton>
+              <VolumeUpIcon className="volume-icon"/>
+            </IconButton>
             <div>
               <p className="m-0 fs-5">{definitions?.word}</p>
               <p className="m-0">/{definitions?.phonetic}/</p>

@@ -24,6 +24,11 @@ h1 {
   font-family: "Montserrat Medium", serif;
 }
 
+.volume-icon {
+  transform: scale(1.8);
+  color: #000;
+}
+
 .definitions-wrapper {
   width: 80%;
   height: auto;
@@ -45,11 +50,15 @@ h1 {
 }
 
 .dark .definitions-wrapper {
-  background: #202E3C;
+  background: #3B3F46;
 }
 
 .dark .header {
-  background: #202E3C;
+  background: #3B3F46;
+}
+
+.dark .volume-icon {
+  color: #fff;
 }
 
 @media screen and (max-width: 628px) {

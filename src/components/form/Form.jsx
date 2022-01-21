@@ -21,14 +21,8 @@ const Form = ({ setDefinitions, themePalette }) => {
       const response = await fetch(url)
       const data = await response.json()
       setDefinitions(data[0])
-    }
+    } else setDefinitions([])
   }
-
-  const SearchButton = () => (
-    <IconButton>
-      <SearchIcon />
-    </IconButton>
-  )
 
   return (
     <div className="form d-flex gap-3 text m-auto my-3">
@@ -42,7 +36,9 @@ const Form = ({ setDefinitions, themePalette }) => {
             variant="filled"
             value={word}
             onChange={event => setWord(event.target.value)}
-            InputProps={{endAdornment: <SearchButton />}}
+            InputProps={{endAdornment:
+              <IconButton onClick={fetchSearchData}><SearchIcon /></IconButton>
+            }}
             fullWidth
           />
         </form>

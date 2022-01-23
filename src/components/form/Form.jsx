@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { MenuItem, TextField, ThemeProvider, IconButton } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 
-const Form = ({ setDefinitions, themePalette }) => {
+const Form = ({ setDefinitions, themePalette, setAppMode }) => {
   const languages = ['English(EN)', 'French(FR)', 'German(DE)', 'Spanish(ES)', 'Italian(IT)']
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
   const languageShortCode = selectedLanguage.slice(-3, -1)
@@ -18,9 +18,14 @@ const Form = ({ setDefinitions, themePalette }) => {
     event.preventDefault()
     if (word.trim().length >= 1) {
       const url = `https://api.dictionaryapi.dev/api/v2/entries/${languageShortCode}/${word}`
-      const response = await fetch(url)
-      const data = await response.json()
-      setDefinitions(data[0])
+      try {
+        const response = await fetch(url)
+        const data = await response.json()
+        setAppMode('online')
+        setDefinitions(data[0])
+      } catch (error) {
+        setAppMode('offline')
+      }
     } else setDefinitions([])
   }
 

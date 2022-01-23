@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import swDev from './swDev'
 import './index.css'
 
 ReactDOM.render(
@@ -9,3 +10,4 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+swDev()

@@ -2,7 +2,7 @@ import { IconButton } from '@mui/material'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import { searchBookIllustration } from '../assets'
 
-const Output = ({ definitions }) => {
+const Output = ({ definitions, appMode }) => {
   const playWord = url => {
     const audio = new Audio(`https:${url}`)
     audio?.play()
@@ -10,7 +10,13 @@ const Output = ({ definitions }) => {
 
   return (
     <div className="mt-4">
-      {definitions?.length <= 0 && (
+      {appMode === 'offline' && (
+        <div className="text-center fs-4">
+          😞 you are in offline mode or some issue with connection.
+        </div>
+      )}
+
+      {definitions?.length <= 0 && appMode === 'online' && (
         <div className="text-center">
           <img
             src={searchBookIllustration}

@@ -48,6 +48,10 @@ h1 {
   background: #3B5360;
 }
 
+button:active {
+  transform: translateY(0.2em);
+}
+
 .dark {
   background: #282C34;
   color: #fff;

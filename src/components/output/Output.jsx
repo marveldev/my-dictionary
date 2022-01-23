@@ -3,6 +3,11 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import { searchBookIllustration } from '../assets'
 
 const Output = ({ definitions }) => {
+  const playWord = url => {
+    const audio = new Audio(`https:${url}`)
+    audio?.play()
+  }
+
   return (
     <div className="mt-4">
       {definitions?.length <= 0 && (
@@ -15,12 +20,14 @@ const Output = ({ definitions }) => {
       {definitions?.meanings && (
         <div className="definitions-wrapper m-auto overflow-auto rounded">
           <div className="header d-flex align-items-center gap-3">
-            <IconButton>
-              <VolumeUpIcon className="volume-icon"/>
-            </IconButton>
+            {definitions?.phonetic && (
+              <IconButton onClick={() => playWord(definitions?.phonetics[0].audio)}>
+                <VolumeUpIcon className="volume-icon"/>
+              </IconButton>
+            )}
             <div>
               <p className="m-0 fs-5">{definitions?.word}</p>
-              <p className="m-0">/{definitions?.phonetic}/</p>
+              {definitions?.phonetic && <p className="m-0">/{definitions?.phonetic}/</p>}
             </div>
           </div>
           <ul className="mx-lg-5 ps-0">

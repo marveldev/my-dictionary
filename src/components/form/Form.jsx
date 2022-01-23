@@ -37,7 +37,9 @@ const Form = ({ setDefinitions, themePalette }) => {
             value={word}
             onChange={event => setWord(event.target.value)}
             InputProps={{endAdornment:
-              <IconButton onClick={fetchSearchData}><SearchIcon /></IconButton>
+              <IconButton onClick={fetchSearchData} aria-label="search">
+                <SearchIcon />
+              </IconButton>
             }}
             fullWidth
           />

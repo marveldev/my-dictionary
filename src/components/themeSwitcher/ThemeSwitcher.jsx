@@ -1,3 +1,4 @@
+import { FormControlLabel } from '@mui/material'
 import { MaterialUISwitch } from './MUISwitch'
 
 const ThemeSwitcher = ({ theme, setTheme, themePalette }) => {
@@ -9,10 +10,16 @@ const ThemeSwitcher = ({ theme, setTheme, themePalette }) => {
 
   return (
     <div className="text-end mx-4 mt-1">
-      <MaterialUISwitch
-        theme={themePalette}
-        onChange={switchTheme}
-        checked={theme === 'dark' && true}
+      <FormControlLabel
+        label=''
+        control={
+          <MaterialUISwitch
+            theme={themePalette}
+            onChange={switchTheme}
+            checked={theme === 'dark' && true}
+            aria-label='switch theme'
+          />
+        }
       />
     </div>
   )

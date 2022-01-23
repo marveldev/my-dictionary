@@ -12,7 +12,11 @@ const Output = ({ definitions }) => {
     <div className="mt-4">
       {definitions?.length <= 0 && (
         <div className="text-center">
-          <img src={searchBookIllustration} alt="search book illustration"/>
+          <img
+            src={searchBookIllustration}
+            className="w-auto h-auto"
+            alt="search book illustration"
+          />
           <p>Find meanings to words you care about</p>
         </div>
       )}

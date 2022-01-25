@@ -18,6 +18,13 @@ h1 {
   width: 80%;
 }
 
+#searchButton {
+  border-radius: 0 0.5em 0.5em 0;
+  box-shadow: none;
+}
+
+
+
 .header {
   padding: 1em 2em;
   font-family: "Montserrat Medium", serif;
@@ -75,9 +82,10 @@ button:active {
 
 @media screen and (max-width: 628px) {
   .form {
-    gap: 1em;
     width: 95%;
   }
+
+
 
   .header {
     padding: 0.5em 0;

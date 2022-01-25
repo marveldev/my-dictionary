@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MenuItem, TextField, ThemeProvider, IconButton } from '@mui/material'
+import { TextField, ThemeProvider, Autocomplete, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 
 const Form = ({ setDefinitions, themePalette, setAppMode }) => {
@@ -7,6 +7,8 @@ const Form = ({ setDefinitions, themePalette, setAppMode }) => {
   const [selectedLanguage, setSelectedLanguage] = useState('English(EN)')
   const languageShortCode = selectedLanguage.slice(-3, -1)
   const [word, setWord] = useState('')
+
+  const wordList = require('word-list-json')
 
   const changeLanguage = value => {
     setDefinitions([])
@@ -30,44 +32,22 @@ const Form = ({ setDefinitions, themePalette, setAppMode }) => {
   }
 
   return (
-    <div className="form d-flex gap-3 text m-auto my-3">
-      <ThemeProvider theme={themePalette}>
-        <form
-          className="flex-grow-1"
-          onSubmit={event => fetchSearchData(event)}
-        >
-          <TextField
-            label="Search a Word"
-            variant="filled"
-            value={word}
-            onChange={event => setWord(event.target.value)}
-            InputProps={{endAdornment:
-              <IconButton onClick={fetchSearchData} aria-label="search">
+    <ThemeProvider theme={themePalette}>
+      <>
+        <Autocomplete
+          freeSolo
+          options={languages.map((option) => option)}
+          renderInput={params =>
+            <div className="form d-flex m-auto">
+              <TextField {...params} variant="filled" label="Search a Word" />
+              <Button variant="contained" id="searchButton">
                 <SearchIcon />
-              </IconButton>
-            }}
-            fullWidth
-          />
-        </form>
-
-        <div>
-          <TextField
-            label="Language"
-            value={selectedLanguage}
-            variant="filled"
-            onChange={event => changeLanguage(event.target.value)}
-            fullWidth
-            select
-          >
-            {languages.map(language => (
-              <MenuItem key={language} value={language}>
-                {language}
-              </MenuItem>
-            ))}
-          </TextField>
-        </div>
-      </ThemeProvider>
-    </div>
+              </Button>
+            </div>
+          }
+        />
+      </>
+    </ThemeProvider>
   )
 }
 

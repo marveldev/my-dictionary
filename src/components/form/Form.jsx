@@ -8,8 +8,10 @@ import SearchIcon from '@mui/icons-material/Search'
 const Form = ({ setDefinitions, themePalette, setAppMode }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
+  const [fetchData, setFetchData] = useState()
+
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-  const { isLoading, data, error } = useFetch(url, {depends: [word]})
+  const { isLoading, data, error } = useFetch(url, {depends: [word, fetchData]})
 
   const doWordFilter = debounce(value => {
     if(value.trim().length >= 1) {
@@ -42,7 +44,7 @@ const Form = ({ setDefinitions, themePalette, setAppMode }) => {
           renderInput={params =>
             <form
               className="form d-flex m-auto"
-              onSubmit={event => fetchWordData(event)}
+              // onSubmit={event => fetchWordData(event)}
             >
               <TextField
                 {...params}

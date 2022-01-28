@@ -1,1 +1,1 @@
-export { default as searchBookIllustration } from './searchBookIllustration.svg'
+export { default as searchIllustration } from './searchIllustration.png'

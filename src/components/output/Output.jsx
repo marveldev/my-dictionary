@@ -1,6 +1,6 @@
 import { IconButton } from '@mui/material'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
-import { searchBookIllustration } from '../assets'
+import { searchIllustration } from '../assets'
 
 const Output = ({ definitions, appMode, isLoading }) => {
   const playWord = url => {
@@ -23,9 +23,9 @@ const Output = ({ definitions, appMode, isLoading }) => {
           {definitions?.length <= 0 && (
             <div className="text-center">
               <img
-                src={searchBookIllustration}
-                className="w-auto h-auto"
-                alt="search book illustration"
+                src={searchIllustration}
+                className="search-illustration"
+                alt="search illustration"
               />
               <p>Find meanings to words you care about</p>
             </div>

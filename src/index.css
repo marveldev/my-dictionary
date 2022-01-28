@@ -23,7 +23,11 @@ h1 {
   box-shadow: none;
 }
 
-
+.search-illustration {
+  width: 13em;
+  height: 13em;
+  object-fit: contain;
+}
 
 .header {
   padding: 1em 2em;
@@ -84,8 +88,6 @@ button:active {
   .form {
     width: 95%;
   }
-
-
 
   .header {
     padding: 0.5em 0;

@@ -4,7 +4,7 @@ import wordList from 'word-list-json'
 import { TextField, ThemeProvider, Autocomplete, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 
-const Form = ({ setDefinitions, themePalette, setIsLoading }) => {
+const Form = ({ setDefinitions, themePalette, setIsLoading, setAppMode }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
 
@@ -31,9 +31,10 @@ const Form = ({ setDefinitions, themePalette, setIsLoading }) => {
       if (data) {
         setIsLoading(null)
         setDefinitions(data[0])
+        setAppMode('online')
       }
     } catch (error) {
-      console.log("error", error)
+      setAppMode('offline')
     }
   }
 

@@ -22,19 +22,22 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setAppMode }) => {
   }, 300)
 
   const fetchDefinition = async event => {
-    event.preventDefault()
-    setIsLoading(true)
+    event?.preventDefault()
+    if (word.trim().length >= 1) {
+      setIsLoading(true)
 
-    try {
-      const response = await fetch(url)
-      const data = await response.json()
-      if (data) {
-        setIsLoading(null)
-        setDefinitions(data[0])
-        setAppMode('online')
+      try {
+        const response = await fetch(url)
+        const data = await response.json()
+        if (data) {
+          setIsLoading(null)
+          setDefinitions(data[0])
+          setAppMode('online')
+        }
+      } catch (error) {
+        setAppMode('offline')
+        setDefinitions([])
       }
-    } catch (error) {
-      setAppMode('offline')
     }
   }
 

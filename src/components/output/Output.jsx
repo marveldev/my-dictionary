@@ -2,7 +2,7 @@ import { IconButton } from '@mui/material'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import { searchBookIllustration } from '../assets'
 
-const Output = ({ definitions, appMode }) => {
+const Output = ({ definitions, appMode, isLoading }) => {
   const playWord = url => {
     const audio = new Audio(`https:${url}`)
     audio?.play()
@@ -10,11 +10,11 @@ const Output = ({ definitions, appMode }) => {
 
   return (
     <div className="mt-4">
-      {appMode === 'offline' && (
-        <div className="text-center fs-4">
-          😞 you are in offline mode or some issue with connection.
-        </div>
-      )}
+      {/*{appMode === 'offline' && (*/}
+      {/*  <div className="text-center fs-4">*/}
+      {/*    😞 you are in offline mode or some issue with connection.*/}
+      {/*  </div>*/}
+      {/*)}*/}
 
       {definitions?.length <= 0 && appMode === 'online' && (
         <div className="text-center">
@@ -63,11 +63,13 @@ const Output = ({ definitions, appMode }) => {
         </div>
       )}
 
-      {!definitions && (
-        <div className="text-center fs-4">
-          😞 we couldn't find definitions for the word you are looking for.
-        </div>
-      )}
+      {isLoading && <h1 className="fs-4 text-center">Loading...</h1>}
+
+      {/*{!definitions && (*/}
+      {/*  <div className="text-center fs-4">*/}
+      {/*    😞 we couldn't find definitions for the word you are looking for.*/}
+      {/*  </div>*/}
+      {/*)}*/}
     </div>
   )
 }

@@ -4,9 +4,11 @@ import { Form, Output, ThemeSwitcher } from './components'
 
 const App = () => {
   const [definitions, setDefinitions] = useState([])
+  const [appMode, setAppMode] = useState('online')
+  const [isLoading, setIsLoading] = useState(null)
+
   const storedTheme = localStorage.getItem('theme') || 'light'
   const [theme, setTheme] = useState(storedTheme)
-  const [appMode, setAppMode] = useState('online')
 
   const themePalette = createTheme({
     palette: {
@@ -22,8 +24,13 @@ const App = () => {
         setDefinitions={setDefinitions}
         themePalette={themePalette}
         setAppMode={setAppMode}
+        setIsLoading={setIsLoading}
       />
-      <Output definitions={definitions} appMode={appMode} />
+      <Output
+        definitions={definitions}
+        appMode={appMode}
+        isLoading={isLoading}
+      />
     </div>
   )
 }

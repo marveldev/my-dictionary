@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useFetch from 'react-fetch-hook'
 import debounce from 'lodash.debounce'
 import wordList from 'word-list-json'
 import { TextField, ThemeProvider, Autocomplete, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 
-const Form = ({ setDefinitions, themePalette, setAppMode }) => {
+const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
-  const [fetchData, setFetchData] = useState()
+  const [fetchData, setFetchData] = useState(null)
 
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
   const { isLoading, data, error } = useFetch(url, {depends: [word, fetchData]})
@@ -24,12 +24,19 @@ const Form = ({ setDefinitions, themePalette, setAppMode }) => {
     }
   }, 300)
 
-  const fetchWordData = event => {
+  const addDataToDom = event => {
     event.preventDefault()
-    data && setDefinitions(data[0])
-    isLoading && console.log('is loading')
-    error && console.log(error)
+    setFetchData(true)
   }
+
+  useEffect(() => {
+    if (fetchData) {
+      data && setDefinitions(data[0])
+      isLoading && setIsLoading(true)
+      error && setIsError(true)
+      setFetchData(null)
+    }
+  }, [data, error, fetchData, isLoading, setDefinitions, setIsError, setIsLoading])
 
   return (
     <ThemeProvider theme={themePalette}>
@@ -44,7 +51,7 @@ const Form = ({ setDefinitions, themePalette, setAppMode }) => {
           renderInput={params =>
             <form
               className="form d-flex m-auto"
-              // onSubmit={event => fetchWordData(event)}
+              onSubmit={event => addDataToDom(event)}
             >
               <TextField
                 {...params}

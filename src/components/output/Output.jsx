@@ -1,6 +1,6 @@
 import { IconButton } from '@mui/material'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
-import { searchIllustration } from '../assets'
+import { searchIllustration, loader } from '../assets'
 
 const Output = ({ definitions, isLoading }) => {
   const playWord = url => {
@@ -10,7 +10,14 @@ const Output = ({ definitions, isLoading }) => {
 
   return (
     <div className="mt-4">
-      {isLoading && <h1 className="fs-4 text-center">Loading...</h1>}
+      {isLoading && (
+        <div className="text-center">
+          <img
+            src={loader}
+            alt="loading"
+          />
+        </div>
+      )}
 
       {!isLoading && (
         <>

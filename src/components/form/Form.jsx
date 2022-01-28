@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import useFetch from 'react-fetch-hook'
+import { useState } from 'react'
 import debounce from 'lodash.debounce'
 import wordList from 'word-list-json'
 import { TextField, ThemeProvider, Autocomplete, Button } from '@mui/material'
@@ -9,9 +8,8 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
 
-  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-  // const url2 = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=b888b747-519c-497b-b7bc-f79b91985d17`
-  const { isLoading, data, error } = useFetch(url, {depends: [word]})
+  const apiKey = `b888b747-519c-497b-b7bc-f79b91985d17`
+  const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${apiKey}`
 
   const doWordFilter = debounce(value => {
     if(value.trim().length >= 1) {
@@ -23,20 +21,21 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
     }
   }, 300)
 
-  const AddDataToDom = event => {
+  const fetchDefinition = async event => {
     event.preventDefault()
-    console.log('word==>', word)
-  }
+    setIsLoading(true)
 
-  useEffect(() => {
-    if (data) {
-      console.log('data==>', data[0])
-      setIsLoading(null)
+    try {
+      const response = await fetch(url)
+      const data = await response.json()
+      if (data) {
+        setIsLoading(null)
+        console.log('data==>', data[0])
+      }
+    } catch (error) {
+      console.log("error", error)
     }
-
-    isLoading && setIsLoading(true)
-    error && console.log('error')
-  }, [data, error, isLoading, setDefinitions, setIsLoading])
+  }
 
   return (
     <ThemeProvider theme={themePalette}>
@@ -51,7 +50,7 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
           renderInput={params =>
             <form
               className="form d-flex m-auto"
-              onSubmit={event => AddDataToDom(event)}
+              onSubmit={event => fetchDefinition(event)}
             >
               <TextField
                 {...params}

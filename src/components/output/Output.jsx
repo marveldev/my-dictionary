@@ -2,7 +2,7 @@ import { IconButton } from '@mui/material'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import { searchIllustration } from '../assets'
 
-const Output = ({ definitions, appMode, isLoading }) => {
+const Output = ({ definitions, isLoading }) => {
   const playWord = url => {
     const audio = new Audio(`https:${url}`)
     audio?.play()

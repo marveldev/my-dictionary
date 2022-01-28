@@ -68,11 +68,12 @@ button:active {
   color: #fff;
 }
 
-.dark .definitions-wrapper {
-  background: #3B3F46;
+.dark #searchButton {
+  background: #1174ff;
+  color: #fff;
 }
 
-.dark .header {
+.dark .definitions-wrapper {
   background: #3B3F46;
 }
 

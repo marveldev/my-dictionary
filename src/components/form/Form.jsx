@@ -8,8 +8,7 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
 
-  const apiKey = `b888b747-519c-497b-b7bc-f79b91985d17`
-  const url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${apiKey}`
+  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
 
   const doWordFilter = debounce(value => {
     if(value.trim().length >= 1) {
@@ -18,6 +17,7 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
     } else {
       setFilteredWords([])
       setWord('')
+      setDefinitions([])
     }
   }, 300)
 
@@ -30,7 +30,7 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
       const data = await response.json()
       if (data) {
         setIsLoading(null)
-        console.log('data==>', data[0])
+        setDefinitions(data[0])
       }
     } catch (error) {
       console.log("error", error)

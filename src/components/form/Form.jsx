@@ -8,35 +8,35 @@ import SearchIcon from '@mui/icons-material/Search'
 const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
   const [filteredWords, setFilteredWords] = useState([])
   const [word, setWord] = useState('')
-  const [fetchData, setFetchData] = useState(null)
 
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-  const { isLoading, data, error } = useFetch(url, {depends: [word, fetchData]})
+  // const url2 = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=b888b747-519c-497b-b7bc-f79b91985d17`
+  const { isLoading, data, error } = useFetch(url, {depends: [word]})
 
   const doWordFilter = debounce(value => {
     if(value.trim().length >= 1) {
       const wordFilter = wordList?.filter(word => word.startsWith(value.toLowerCase())).slice(0, 30)
       setFilteredWords(wordFilter)
-      setWord(value)
     } else {
       setFilteredWords([])
       setWord('')
     }
   }, 300)
 
-  const addDataToDom = event => {
+  const AddDataToDom = event => {
     event.preventDefault()
-    setFetchData(true)
+    console.log('word==>', word)
   }
 
   useEffect(() => {
-    if (fetchData) {
-      data && setDefinitions(data[0])
-      isLoading && setIsLoading(true)
-      error && setIsError(true)
-      setFetchData(null)
+    if (data) {
+      console.log('data==>', data[0])
+      setIsLoading(null)
     }
-  }, [data, error, fetchData, isLoading, setDefinitions, setIsError, setIsLoading])
+
+    isLoading && setIsLoading(true)
+    error && console.log('error')
+  }, [data, error, isLoading, setDefinitions, setIsLoading])
 
   return (
     <ThemeProvider theme={themePalette}>
@@ -51,7 +51,7 @@ const Form = ({ setDefinitions, themePalette, setIsLoading, setIsError }) => {
           renderInput={params =>
             <form
               className="form d-flex m-auto"
-              onSubmit={event => addDataToDom(event)}
+              onSubmit={event => AddDataToDom(event)}
             >
               <TextField
                 {...params}

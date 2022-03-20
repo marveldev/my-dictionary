@@ -4,7 +4,7 @@ import { searchIllustration, loader } from '../assets'
 
 const Output = ({ definitions, isLoading, appMode }) => {
   const playWord = url => {
-    const audio = new Audio(`https:${url}`)
+    const audio = new Audio(url)
     audio?.play()
   }
 
@@ -41,14 +41,14 @@ const Output = ({ definitions, isLoading, appMode }) => {
           {definitions?.meanings && (
             <div className="definitions-wrapper m-auto overflow-auto rounded">
               <div className="header d-flex align-items-center gap-3">
-                {definitions?.phonetic && (
-                  <IconButton onClick={() => playWord(definitions?.phonetics[0].audio)}>
+                {definitions.phonetics[0]?.audio && (
+                  <IconButton onClick={() => playWord(definitions.phonetics[0]?.audio)}>
                     <VolumeUpIcon className="volume-icon"/>
                   </IconButton>
                 )}
                 <div>
                   <p className="m-0 fs-5">{definitions?.word}</p>
-                  {definitions?.phonetic && <p className="m-0">/{definitions?.phonetic}/</p>}
+                  {definitions?.phonetic && <p className="m-0">{definitions?.phonetic}</p>}
                 </div>
               </div>
               <ul className="mx-lg-5 ps-0">

@@ -9,7 +9,7 @@ const Output = ({ definitions, isLoading, appMode }) => {
   }
 
   return (
-    <div className="output">
+    <div className="mt-4">
       {isLoading && appMode === 'online' && (
         <div className="text-center">
           <img src={loader} alt="loading" />

@@ -9,13 +9,6 @@ body {
   transition: all 0.5s linear 0s;
 }
 
-.top-column {
-  position: fixed;
-  background: #fff;
-  z-index: 1;
-  transition: all 0.5s linear 0s;
-}
-
 h1 {
   font-size: 3em;
   font-family: 'Montserrat light', serif;
@@ -30,18 +23,13 @@ h1 {
   box-shadow: none;
 }
 
-.output {
-  margin: 11.3em auto 0;
-  padding-bottom: 1em;
-}
-
 .search-illustration {
   width: 13em;
   height: 13em;
   object-fit: contain;
 }
 
-.definition-header {
+.header {
   padding: 1em 2em;
   font-family: 'Montserrat Medium', serif;
 }
@@ -53,7 +41,19 @@ h1 {
 
 .definitions-wrapper {
   width: 80%;
+  margin-bottom: 1.5em;
+  /* height: 100vh; */
+  /* max-height: 27em; */
   background: #f0f0f0;
+}
+
+.definitions-wrapper::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.definitions-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 0.5em;
+  background-color: #bbb7b7;
 }
 
 .definition {
@@ -67,16 +67,11 @@ button:active {
 .dark {
   background: #282c34;
   color: #fff;
-  height: auto;
 }
 
 .dark #searchButton {
   background: #1174ff;
   color: #fff;
-}
-
-.dark .top-column {
-  background: #282c34;
 }
 
 .dark .definitions-wrapper {
@@ -96,16 +91,12 @@ button:active {
     width: 95%;
   }
 
-  .output {
-    margin-top: 12em;
-  }
-
-  .definition-header {
+  .header {
     padding: 0.5em 0;
   }
 
   .definitions-wrapper {
     width: 95%;
-    padding: 0 1em;
+    padding: 0 1.2em;
   }
 }

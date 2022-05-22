@@ -6,14 +6,13 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: all 0.5s linear 0s;
+  /* transition: all 0.5s linear 0s; */
 }
 
 .top-column {
   position: fixed;
   background: #fff;
   z-index: 1;
-  transition: all 0.5s linear 0s;
 }
 
 h1 {
@@ -96,16 +95,12 @@ button:active {
     width: 95%;
   }
 
-  .output {
-    margin-top: 12em;
-  }
-
   .definition-header {
     padding: 0.5em 0;
   }
 
   .definitions-wrapper {
     width: 95%;
-    padding: 0 1em;
+    padding: 0 1.2em;
   }
 }

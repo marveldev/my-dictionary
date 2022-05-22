@@ -9,16 +9,9 @@ body {
   transition: all 0.5s linear 0s;
 }
 
-.top-column {
-  position: fixed;
-  background: #fff;
-  z-index: 1;
-  transition: all 0.5s linear 0s;
-}
-
 h1 {
   font-size: 3em;
-  font-family: 'Montserrat light', serif;
+  font-family: "Montserrat light", serif;
 }
 
 .form {
@@ -30,20 +23,15 @@ h1 {
   box-shadow: none;
 }
 
-.output {
-  margin: 11.3em auto 0;
-  padding-bottom: 1em;
-}
-
 .search-illustration {
   width: 13em;
   height: 13em;
   object-fit: contain;
 }
 
-.definition-header {
+.header {
   padding: 1em 2em;
-  font-family: 'Montserrat Medium', serif;
+  font-family: "Montserrat Medium", serif;
 }
 
 .volume-icon {
@@ -53,11 +41,22 @@ h1 {
 
 .definitions-wrapper {
   width: 80%;
+  height: auto;
+  max-height: 27em;
   background: #f0f0f0;
 }
 
+.definitions-wrapper::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.definitions-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 0.5em;
+  background-color: #bbb7b7;
+}
+
 .definition {
-  background: #3b5360;
+  background: #3B5360;
 }
 
 button:active {
@@ -65,9 +64,8 @@ button:active {
 }
 
 .dark {
-  background: #282c34;
+  background: #282C34;
   color: #fff;
-  height: auto;
 }
 
 .dark #searchButton {
@@ -75,12 +73,8 @@ button:active {
   color: #fff;
 }
 
-.dark .top-column {
-  background: #282c34;
-}
-
 .dark .definitions-wrapper {
-  background: #3b3f46;
+  background: #3B3F46;
 }
 
 .dark .definition {
@@ -96,16 +90,11 @@ button:active {
     width: 95%;
   }
 
-  .output {
-    margin-top: 12em;
-  }
-
-  .definition-header {
+  .header {
     padding: 0.5em 0;
   }
 
   .definitions-wrapper {
     width: 95%;
-    padding: 0 1em;
   }
 }

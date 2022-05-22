@@ -9,15 +9,15 @@ const ThemeSwitcher = ({ theme, setTheme, themePalette }) => {
   }
 
   return (
-    <div className="text-end mx-lg-4 mt-2">
+    <div className="text-end mx-lg-4 mt-1">
       <FormControlLabel
-        label=""
+        label=''
         control={
           <MaterialUISwitch
             theme={themePalette}
             onChange={switchTheme}
             checked={theme === 'dark' && true}
-            aria-label="switch theme"
+            aria-label='switch theme'
           />
         }
       />

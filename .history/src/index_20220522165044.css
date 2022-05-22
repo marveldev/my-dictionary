@@ -11,7 +11,7 @@ body {
 
 .top-column {
   position: fixed;
-  background: #fff;
+  background: red;
   z-index: 1;
   transition: all 0.5s linear 0s;
 }
@@ -96,16 +96,12 @@ button:active {
     width: 95%;
   }
 
-  .output {
-    margin-top: 12em;
-  }
-
   .definition-header {
     padding: 0.5em 0;
   }
 
   .definitions-wrapper {
     width: 95%;
-    padding: 0 1em;
+    padding: 0 1.2em;
   }
 }

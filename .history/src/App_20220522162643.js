@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className={`${theme} app`}>
-      <div className="top-column top-0 w-100 pb-4">
+      <div className="fixed top-0 w-100">
         <ThemeSwitcher setTheme={setTheme} theme={theme} themePalette={themePalette} />
         <h1 className="text-center">{definitions?.word || 'WORD BOOK'}</h1>
         <Form

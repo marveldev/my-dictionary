@@ -9,7 +9,7 @@ const Output = ({ definitions, isLoading, appMode }) => {
   }
 
   return (
-    <div className="output">
+    <div className="mt-4">
       {isLoading && appMode === 'online' && (
         <div className="text-center">
           <img src={loader} alt="loading" />
@@ -30,8 +30,8 @@ const Output = ({ definitions, isLoading, appMode }) => {
           )}
 
           {definitions?.meanings && (
-            <div className="definitions-wrapper m-auto pb-4 rounded">
-              <div className="definition-header d-flex align-items-center gap-3">
+            <div className="definitions-wrapper m-auto rounded">
+              <div className="header d-flex align-items-center gap-3">
                 {definitions.phonetics[0]?.audio && (
                   <IconButton onClick={() => playWord(definitions.phonetics[0]?.audio)}>
                     <VolumeUpIcon className="volume-icon" />

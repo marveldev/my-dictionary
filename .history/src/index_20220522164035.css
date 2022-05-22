@@ -13,7 +13,6 @@ body {
   position: fixed;
   background: #fff;
   z-index: 1;
-  transition: all 0.5s linear 0s;
 }
 
 h1 {
@@ -56,6 +55,15 @@ h1 {
   background: #f0f0f0;
 }
 
+.definitions-wrapper::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.definitions-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 0.5em;
+  background-color: #bbb7b7;
+}
+
 .definition {
   background: #3b5360;
 }
@@ -67,7 +75,7 @@ button:active {
 .dark {
   background: #282c34;
   color: #fff;
-  height: auto;
+  overflow: auto;
 }
 
 .dark #searchButton {
@@ -96,16 +104,12 @@ button:active {
     width: 95%;
   }
 
-  .output {
-    margin-top: 12em;
-  }
-
   .definition-header {
     padding: 0.5em 0;
   }
 
   .definitions-wrapper {
     width: 95%;
-    padding: 0 1em;
+    padding: 0 1.2em;
   }
 }

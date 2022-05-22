@@ -3,10 +3,14 @@ body {
 }
 
 .app {
-  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   transition: all 0.5s linear 0s;
+  overflow: auto;
+}
+
+.app::-webkit-scrollbar {
+  display: none;
 }
 
 .top-column {
@@ -67,7 +71,6 @@ button:active {
 .dark {
   background: #282c34;
   color: #fff;
-  height: auto;
 }
 
 .dark #searchButton {

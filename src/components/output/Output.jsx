@@ -19,7 +19,9 @@ const Output = ({ definitions, isLoading, appMode }) => {
       {!isLoading && (
         <>
           {!definitions && (
-            <div className="text-center fs-4">😞 we couldn't find definitions for the word you are looking for.</div>
+            <div className="text-center fs-4 px-4">
+              😞 we couldn't find definitions for the word you are looking for.
+            </div>
           )}
 
           {definitions?.length <= 0 && (

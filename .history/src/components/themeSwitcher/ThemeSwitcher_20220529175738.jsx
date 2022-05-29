@@ -9,7 +9,7 @@ const ThemeSwitcher = ({ theme, setTheme, themePalette }) => {
   }
 
   return (
-    <div className="theme-switcher text-end mx-lg-4 mt-2">
+    <div className="theme-switcher">
       <FormControlLabel
         label=""
         control={

@@ -66,9 +66,6 @@ h1 {
 }
 
 .definition-header {
-  display: flex;
-  align-items: center;
-  gap: 1em;
   padding: 1em 2em;
   font-family: 'Montserrat Medium', serif;
 }
@@ -82,11 +79,11 @@ h1 {
   width: 80%;
   background: #f0f0f0;
   margin: auto;
+  border-radius: 0.3em;
 }
 
 .definition {
   background: #3b5360;
-  color: #fff;
 }
 
 button:active {

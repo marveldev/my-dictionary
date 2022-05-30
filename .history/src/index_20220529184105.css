@@ -35,8 +35,8 @@ h1 {
   margin: 0 0 0.5em;
 }
 
-.text-center {
-  text-align: center;
+.fs-4 {
+  font-size: 1em;
 }
 
 .form {
@@ -51,12 +51,8 @@ h1 {
 }
 
 .output {
-  margin: 13em auto 0;
+  margin: 11.3em auto 0;
   padding-bottom: 1em;
-}
-
-.offline-text {
-  margin-top: 2em;
 }
 
 .search-illustration {
@@ -120,7 +116,7 @@ button:active {
   }
 
   .output {
-    margin-top: 13.3em;
+    margin-top: 12em;
   }
 
   .definition-header {

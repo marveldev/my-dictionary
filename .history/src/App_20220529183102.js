@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { createTheme } from '@mui/material'
 import { Form, Output, ThemeSwitcher } from './components'
 
 const App = () => {
   const [definitions, setDefinitions] = useState([])
-  const [appMode, setAppMode] = useState('online')
+  const [appMode, setAppMode] = useState(localStorage.getItem('appMode' || 'online'))
   const [isLoading, setIsLoading] = useState(null)
 
   const storedTheme = localStorage.getItem('theme') || 'light'
@@ -15,14 +15,6 @@ const App = () => {
       mode: theme,
     },
   })
-
-  useEffect(() => {
-    if (navigator.onLine) {
-      setAppMode('onLine')
-    } else {
-      setAppMode('offline')
-    }
-  }, [])
 
   return (
     <div className={`${theme} app`}>

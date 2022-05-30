@@ -24,7 +24,7 @@ const Output = ({ definitions, isLoading, appMode }) => {
             </div>
           )}
 
-          {definitions?.length <= 0 && (
+          {definitions?.length <= 0 && appMode === 'online && (
             <div className="text-center">
               <img src={searchIllustration} className="search-illustration" alt="search illustration" />
               <p>Find meanings to words you care about</p>
@@ -70,7 +70,7 @@ const Output = ({ definitions, isLoading, appMode }) => {
       )}
 
       {appMode === 'offline' && (
-        <div className="text-center fs-4 offline-text">😞 you are in offline mode or some issue with connection.</div>
+        <div className="text-center fs-4">😞 you are in offline mode or some issue with connection.</div>
       )}
     </div>
   )

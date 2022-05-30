@@ -4,7 +4,7 @@ import { Form, Output, ThemeSwitcher } from './components'
 
 const App = () => {
   const [definitions, setDefinitions] = useState([])
-  const [appMode, setAppMode] = useState('online')
+  const [appMode, setAppMode] = useState(localStorage.getItem('appMode' || 'online'))
   const [isLoading, setIsLoading] = useState(null)
 
   const storedTheme = localStorage.getItem('theme') || 'light'
@@ -18,9 +18,9 @@ const App = () => {
 
   useEffect(() => {
     if (navigator.onLine) {
-      setAppMode('onLine')
+      localStorage.setItem('appMode', 'online')
     } else {
-      setAppMode('offline')
+      localStorage.setItem('appMode', 'offline')
     }
   }, [])
 

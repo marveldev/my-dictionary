@@ -55,10 +55,6 @@ h1 {
   padding-bottom: 1em;
 }
 
-.offline-text {
-  margin-top: 2em;
-}
-
 .search-illustration {
   width: 13em;
   height: 13em;
@@ -120,7 +116,7 @@ button:active {
   }
 
   .output {
-    margin-top: 13.3em;
+    margin-top: 13.5em;
   }
 
   .definition-header {

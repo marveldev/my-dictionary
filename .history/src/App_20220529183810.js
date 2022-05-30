@@ -18,9 +18,11 @@ const App = () => {
 
   useEffect(() => {
     if (navigator.onLine) {
+      // localStorage.setItem('appMode', 'online')
       setAppMode('onLine')
     } else {
       setAppMode('offline')
+      // localStorage.setItem('appMode', 'offline')
     }
   }, [])
 

@@ -75,8 +75,6 @@ h1 {
 
 .definitions-wrapper ul {
   margin: auto;
-  padding: 0;
-  width: 90%;
 }
 
 .volume-icon {
@@ -141,10 +139,5 @@ button:active {
   .definitions-wrapper {
     width: 95%;
     padding: 0 1em;
-  }
-
-  .definitions-wrapper ul {
-    width: 100%;
-    list-style: none;
   }
 }

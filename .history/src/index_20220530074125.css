@@ -142,9 +142,4 @@ button:active {
     width: 95%;
     padding: 0 1em;
   }
-
-  .definitions-wrapper ul {
-    width: 100%;
-    list-style: none;
-  }
 }

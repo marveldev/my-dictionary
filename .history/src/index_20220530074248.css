@@ -144,7 +144,8 @@ button:active {
   }
 
   .definitions-wrapper ul {
+    margin: auto;
+    padding: 0;
     width: 100%;
-    list-style: none;
   }
 }
